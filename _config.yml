@@ -1,0 +1,46 @@
+collections:
+  warsztaty:
+    output: true
+
+# Jekyll configuration
+markdown: kramdown
+highlighter: rouge
+language: 'pl'
+
+# Website info
+title: devWarsztaty
+description: devWarsztaty - inicjatywa typu społeczność dla społeczności zainaugurowana przez Jakuba Gutkowskiego
+logo: http://devWarsztaty.pl/images/logo-627x627.jpg
+production_url: https://devwarsztaty.pl
+url: https://devwarsztaty.pl
+
+# Google Analytics
+google_analytics: UA-4831504-10
+
+# gems and other configs
+plugins_dir: [_plugins]
+plugins: [jekyll-paginate, jekyll-feed]
+
+feed:
+  path: feed.xml
+
+exclude:
+  - assets/css
+  - notes
+  - node_modules
+  - vendor
+  - .travis.yml
+  - Gemfile
+  - Gemfile.lock
+  - GHOST.txt
+  - gulpfile.js
+  - LICENSE
+  - package.json
+  - Rakefile
+  - README.md
+  - script.py
+  - changelog.md
+  - "*.Rmd"
+  - .git*
+
+include: [_redirects]

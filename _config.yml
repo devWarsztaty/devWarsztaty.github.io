@@ -1,6 +1,13 @@
 collections:
   warsztaty:
     output: true
+    permalink: /warsztaty/:path/
+
+defaults:
+  - scope:
+      path: "_warsztaty"
+    values:
+      layout: warsztaty
 
 # Jekyll configuration
 markdown: kramdown
@@ -13,6 +20,9 @@ description: devWarsztaty - inicjatywa typu społeczność dla społeczności za
 logo: http://devWarsztaty.pl/images/logo-627x627.jpg
 production_url: https://devwarsztaty.pl
 url: https://devwarsztaty.pl
+
+facebook: https://www.facebook.com/devWarsztaty
+facebook_admin: 1077660901
 
 # Google Analytics
 google_analytics: UA-4831504-10

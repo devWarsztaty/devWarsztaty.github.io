@@ -2,13 +2,20 @@ collections:
   warsztaty:
     output: true
     permalink: /warsztaty/:path/
+  prelegenci:
+    output: true
+    permalink: /prelegenci/:path/
 
 defaults:
   - scope:
       path: "_warsztaty"
     values:
       layout: warsztaty
-
+  - scope:
+      path: "_prelegenci"
+    values:
+      layout: prelegenci
+        
 # Jekyll configuration
 markdown: kramdown
 highlighter: rouge

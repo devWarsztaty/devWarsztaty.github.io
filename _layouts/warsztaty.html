@@ -181,9 +181,13 @@
                     <div class="icon fa fa-microphone"></div>
                     <div class="info">
                         <h3>
-                            {% for speaker in page.speakers %}
-                            {{ speaker }}
-                            {% unless forloop.last %} &{% endunless %}
+                            {% for speakerName in page.speakers %}
+                            
+                                {% assign path = "_prelegenci/" | append: speakerName | append: ".md"  %}
+                                {% assign speaker = site.prelegenci | where:"path", path %}
+                                {{ speaker.first.name }}
+                            
+                                {% unless forloop.last %} &{% endunless %}
                             {% endfor %}
                         </h3>
                     </div>
@@ -257,38 +261,36 @@
             </div>
 
             <div class="col-sm-12">
-<!--                <div class="speaker">-->
+                {% for speakerName in page.speakers %}
 
-<!--                    <div class="speaker-info">-->
-<!--                        <div class="speaker-photo">-->
-<!--                            <img src="/images/speakers/krzysztof-morcinek.jpg" alt="Krzysztof Morcinek" />-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <h3><a href="/prelegenci/krzysztof-morcinek/">Krzysztof Morcinek</a></h3>-->
-<!--                    <p>-->
-<!--                        Pasjonat programowania, głównie na platformie .NET. Lubi pisać kod stabilny, zgodny z wszystkimi best-->
-<!--                        practices...-->
-<!--                    </p>-->
-<!--                </div>-->
-<!--                <div class="speaker">-->
-<!--                    <div class="speaker-info">-->
-<!--                        <div class="speaker-photo">-->
-<!--                            <img src="/images/speakers/tomasz-skraskowski.jpg" alt="Tomasz Skraskowski" />-->
-<!--                        </div>-->
-<!--                        <div class="speaker-contacts">-->
-<!--                            <a href="https://www.softwaredeveloper.blog/author/tometchy/"-->
-<!--                               class="contact pull-left fa fa-globe"></a>-->
-<!--                            <a href="https://www.linkedin.com/in/tomasz-skraskowski-155790128/"-->
-<!--                               class="contact pull-right fa fa-linkedin"></a>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <h3><a href="/prelegenci/tomasz-skraskowski/">Tomasz Skraskowski</a></h3>-->
-<!--                    <p>Młody pasjonat programowania, kodzi od 12 roku życia. Wychowany na C++, lecz w ostatnich latach skupiony-->
-<!--                        głównie na C#...</p>-->
-<!--                </div>-->
+                {% assign path = "_prelegenci/" | append: speakerName | append: ".md"  %}
+                {% assign speaker = site.prelegenci | where:"path", path %}
+                {% assign speaker = speaker.first %}
+                {% assign fileName = speaker.path | replace: '_prelegenci/', '' | replace: '.md', '' %}
 
-                {% for speaker in page.speakers %}
-                {{ speaker }}
+                <div class="speaker">
+
+                    <div class="speaker-info">
+                        <div class="speaker-photo">
+                            <img src="/images/speakers/{{ fileName }}.jpg" alt="{{ speaker.name }}" />
+                        </div>
+                        <div class="speaker-contacts">
+                            {% if speaker.contact_left %}
+                            <a href="{{ speaker.contact_left.url }}"
+                               class="contact pull-left fa {{ speaker.contact_left.class }}"></a>
+                            {% endif %}
+                            {% if speaker.contact_right %}
+                            <a href="{{ speaker.contact_right.url }}"
+                               class="contact pull-right fa {{ speaker.contact_right.class }}"></a>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <h3><a href="/prelegenci/{{ fileName }}/">{{ speaker.name }}</a></h3>
+                    <p>
+                        {{ speaker.short_description }}
+                    </p>
+                </div>
+                
                 {% endfor %}
             </div>
         </section>

@@ -1,6 +1,6 @@
 ---
 name: Tomasz Skraskowski
-short_description: Młody pasjonat programowania, kodzi od 12 roku życia. Wychowany na C++, lecz w ostatnich latach skupiony głównie na C#.
+short_description: Młody pasjonat programowania, kodzi od 12 roku życia. Wychowany na C++, lecz w ostatnich latach skupiony głównie na C#...
 contact_left: { url: "https://www.tometchy.com/", class: "fa-globe" }
 contact_right: { url: "https://www.linkedin.com/in/tometchy", class: "fa-linkedin" }
 ---

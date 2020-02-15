@@ -378,18 +378,10 @@
             </div>
             <div class="col-sm-12">
                 <div id="carousel" class="owl-carousel">
-<!--                    <div class="item" style="height: 55px; background: transparent">-->
-<!--                        <a href="https://www.manning.com" target="_blank"><img src="/images/sponsors/skyrise.jpg" width="240" alt="Manning"></a>-->
-<!--                    </div>-->
-<!--                    <div class="item" style="height: 55px; background: transparent">-->
-<!--                        <a href="http://jetbrains.com" target="_blank"><img src="/images/sponsors/jetbrains-logo.png" alt="JetBrains"></a>-->
-<!--                    </div>-->
-<!--                    <div class="item" style="height: 55px; background: transparent">-->
-<!--                        <a href="https://www.manning.com" target="_blank"><img src="/images/sponsors/manning-logo.jpg" width="240" alt="Manning"></a>-->
-<!--                    </div>-->
-                    {% for sponsor in page.sponsors %}
-                        <div class="item" style="height: 55px; background: transparent">
-                            <a href="https://www.manning.com" target="_blank"><img src="/images/sponsors/todo.jpg" width="240" alt="{{ sponsor }}"></a>
+                    {% for sponsorName in page.sponsors %}
+                        {% assign sponsor = site.data.sponsors[sponsorName] %}
+                    <div class="item" style="{% if sponsor.height %}height: {{ sponsor.height }};{% endif %}background: transparent">
+                            <a href="{{ sponsor.url }}" target="_blank"><img src="{{ sponsor.img }}"{% if sponsor.width %}width="{{ sponsor.width }}" {% endif %} alt="{{ sponsor.name }}"></a>
                         </div>
                     {% endfor %}
                 </div>

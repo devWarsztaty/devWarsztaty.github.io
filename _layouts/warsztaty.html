@@ -154,7 +154,7 @@
                     <div class="icon fa fa-calendar"></div>
                     <div class="info">
                         <h3>
-                        {% assign date = page.path | replace: "_warsztaty/", "" | replace: ".md", "" %}
+                            {% assign date = page.path | remove: "_warsztaty/" | slice: 0, 10 %}
                         {% assign m = date | date: "%-m" %}
                         {{ date | date: "%-d" }}
                         {% case m %}

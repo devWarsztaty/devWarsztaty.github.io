@@ -1,0 +1,36 @@
+{% assign expression = "item.path contains '" | append: include.url | append: "'" %}
+{% assign workshop = site.warsztaty | where_exp:"item", expression %}
+{% assign workshop = workshop.first %}
+<div class="col-md-6 col-sm-6">
+    <div class="pricing-table">
+        <h3 class="table-title">[{{ workshop.where_h3 }}] {{ workshop.title }}</h3>
+        <div class="table-price">
+            {% assign date = workshop.path | remove: "_warsztaty/" | slice: 0, 10 %}
+            {% assign m = date | date: "%-m" %}
+            {{ date | date: "%-d" }}
+            {% case m %}
+            {% when '1' %}stycznia
+            {% when '2' %}lutego
+            {% when '3' %}marca
+            {% when '4' %}kwietnia
+            {% when '5' %}maja
+            {% when '6' %}czerwca
+            {% when '7' %}lipca
+            {% when '8' %}sierpnia
+            {% when '9' %}września
+            {% when '10' %}października
+            {% when '11' %}listopada
+            {% when '12' %}grudnia
+            {% endcase %}
+            {{ date | date: "%-Y" }}
+        </div>
+        <ul class="table-features">
+            <li>
+                <a class="fa fa-users" href="{{ workshop.meetup }}"><span>meetup</span></a>
+            </li>
+            <li>
+                <a class="fa fa-globe" href="/warsztaty/{{ workshop.path | remove: '_warsztaty/' | remove: '.md' }}/"><span>strona informacyjna</span></a>
+            </li>
+        </ul>
+    </div>
+</div>

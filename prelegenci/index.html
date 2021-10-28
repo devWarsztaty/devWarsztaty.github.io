@@ -1,3 +1,5 @@
+---
+---
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -135,10 +137,49 @@
 						</div>
 					</div>
 
-					<div class="col-sm-6">
+					{% assign rows = site.prelegenci.size | divided_by: 2.0 | ceil %}
+					{% for i in (1..rows) %}
+					{% assign offset = forloop.index0 | times: 2 %}
+					<div class="row">
+						{% for speaker in site.prelegenci limit:2 offset:offset %}
+							{% assign fileName = speaker.path | replace: '_prelegenci/', '' | replace: '.md', '' %}
+						<div class="col-sm-6">
+							<div class="speaker">
 
-						<div class="speaker">
+								<div class="speaker-info">
+									<div class="speaker-photo">
+										<img src="/images/speakers/{{ fileName }}.jpg" alt="{{ speaker.name }}" />
+									</div>
+									<div class="speaker-contacts">
+										{% if speaker.contact_left %}
+										<a href="{{ speaker.contact_left.url }}"
+										   class="contact pull-left fa {{ speaker.contact_left.class }}"></a>
+										{% endif %}
+										{% if speaker.contact_right %}
+										<a href="{{ speaker.contact_right.url }}"
+										   class="contact pull-right fa {{ speaker.contact_right.class }}"></a>
+										{% endif %}
+									</div>
+								</div>
+								<h3><a href="/prelegenci/{{ fileName }}/">{{ speaker.name }}</a></h3>
+								<p>
+									{{ speaker.short_description }}
+								</p>
+								<p>
+									<a href="/prelegenci/{{ fileName }}/">Więcej...</a>
+								</p>
+							</div>
+						</div>
 						
+						{% endfor %}
+					</div>
+					{% endfor %}
+
+					<div class="row">
+
+						<div class="col-sm-6">
+						<div class="speaker">
+
 							<div class="speaker-info">
 								<div class="speaker-photo">
 									<img src="/images/speakers/joanna_lamch.jpg" alt="Joanna Lamach">
@@ -149,21 +190,21 @@
 							</div>
 							<h3><a href="/prelegenci/joanna-lamch/">Joanna Lamch</a></h3>
 							<p>
-								Koderka pełną piersią, fangirl Microsoftu z iPadem w ręku, kociara. W branży IT od wielu
-								lat zawsze w okolicach C# oraz technologi Microsoft. Zwolenniczka Defensive Coding, SOLID,
-								uczenia poprzez mentoring, samorozwoju i kultury DevOps. Community lover, wspierająca Gruba.IT,
-								współorganizatorka Śląskiej Grupy Microsoft, Blogger and speaker wannabe.
+								Koderka pełną piersią, fangirl Microsoftu z iPadem w ręku, kociara...
 							</p>
 							<p>
 								<a href="/prelegenci/joanna-lamch/">więcej...</a>
 							</p>
 						</div>
+						</div>
 
+
+						<div class="col-sm-6">
 						<div class="speaker">
-						
+
 							<div class="speaker-info">
 								<div class="speaker-photo">
-									<img src="/images/speakers/Oskar-Dudycz.jpg" alt="Oskar Dudycz">
+									<img src="/images/speakers/oskar-dudycz.jpg" alt="Oskar Dudycz">
 								</div>
 								<div class="speaker-contacts">
 									<a href="https://Oskar-Dudycz.pl" target="_blank" class="contact pull-left fa fa-globe"></a>
@@ -180,27 +221,34 @@
 								<a href="/prelegenci/oskar-dudycz/">więcej...</a>
 							</p>
 						</div>
+						</div>
+					</div>
 
+					<div class="row">
+
+						<div class="col-sm-6">
 						<div class="speaker">
 
 							<div class="speaker-info">
-									<div class="speaker-photo">
-										<img src="/images/speakers/radek-maziarka.jpg" alt="Radosław Maziarka">
-									</div>
-									<div class="speaker-contacts">
-										<a href="https://radekmaziarka.pl" class="contact pull-left fa fa-globe"></a>
-										<a href="https://twitter.com/RadekMaziarka" class="contact pull-right fa fa-twitter"></a>
-									</div>
+								<div class="speaker-photo">
+									<img src="/images/speakers/radek-maziarka.jpg" alt="Radosław Maziarka">
 								</div>
-								<h3><a href="/prelegenci/radek-maziarka/">Radosław Maziarka</a></h3>
-								<p>
-										Solution Architect, Team Leader i programista w obszarze .NET prowadzący prezentacje i szkolenia, a także organizujący konferencje programistyczne.
-								</p>
-								<p>
-									<a href="/prelegenci/radek-maziarka/">więcej...</a>
-								</p>
+								<div class="speaker-contacts">
+									<a href="https://radekmaziarka.pl" class="contact pull-left fa fa-globe"></a>
+									<a href="https://twitter.com/RadekMaziarka" class="contact pull-right fa fa-twitter"></a>
+								</div>
 							</div>
+							<h3><a href="/prelegenci/radek-maziarka/">Radosław Maziarka</a></h3>
+							<p>
+								Solution Architect, Team Leader i programista w obszarze .NET prowadzący prezentacje i szkolenia, a także organizujący konferencje programistyczne.
+							</p>
+							<p>
+								<a href="/prelegenci/radek-maziarka/">więcej...</a>
+							</p>
+						</div>
+						</div>
 
+						<div class="col-sm-6">
 						<div class="speaker">
 
 							<div class="speaker-info">
@@ -209,93 +257,101 @@
 								</div>
 							</div>
 							<h3><a href="/prelegenci/wojciech-ptak/">Wojciech Ptak</a></h3>
-							<p>Bezgraniczny fan freeride-owego wydania roweru, snowboard-u i nart. 
-								Zawodowo od lat wspierający inicjatywy zwinnych transformacji 
-								kultury organizacji w kierunku data-driven pracując z wieloma 
+							<p>Bezgraniczny fan freeride-owego wydania roweru, snowboard-u i nart.
+								Zawodowo od lat wspierający inicjatywy zwinnych transformacji
+								kultury organizacji w kierunku data-driven pracując z wieloma
 								międzynarodowymi korporacjami.
 							</p>
 							<p>
 								<a href="/prelegenci/wojciech-ptak/">więcej...</a>
 							</p>
 						</div>
+						</div>
+					</div>
 
-						<div class="speaker">
-						
-							<div class="speaker-info">
-								<div class="speaker-photo">
-									<img src="/images/speakers/grzegorz-piotrowski.jpg" alt="Grzegorz Piotrowski">
+					<div class="row">
+						<div class="col-sm-6">
+							<div class="speaker">
+							
+								<div class="speaker-info">
+									<div class="speaker-photo">
+										<img src="/images/speakers/grzegorz-piotrowski.jpg" alt="Grzegorz Piotrowski">
+									</div>
 								</div>
+								<h3><a href="/prelegenci/grzegorz-piotrowski/">Grzegorz Piotrowski</a></h3>
+								<p>Programista, szkoleniowiec, pasjonat nowych technologii, miłośnik platformy .NET.</p>
+								<p>
+								<a href="/prelegenci/grzegorz-piotrowski/">więcej...</a>
+								</p>
 							</div>
-							<h3><a href="/prelegenci/grzegorz-piotrowski/">Grzegorz Piotrowski</a></h3>
-							<p>Programista, szkoleniowiec, pasjonat nowych technologii, miłośnik platformy .NET.</p>
-							<p>
-							<a href="/prelegenci/grzegorz-piotrowski/">więcej...</a>
-							</p>
+						</div>
+
+						<div class="col-sm-6">
+							<div class="speaker">
+							
+								<div class="speaker-info">
+									<div class="speaker-photo">
+										<img src="/images/speakers/robert-lyson.png" alt="Robert Łysoń">
+									</div>		
+									<div class="speaker-contacts">
+										<a href="https://twitter.com/robertlyson" target="_blank" class="contact pull-right fa fa-twitter"></a>
+									</div>						
+								</div>
+								<h3><a href="/prelegenci/robert-lyson/">Robert Łysoń</a></h3>
+								<p>Robert od ładnych paru lat pracuje w Ministry of Ideas gdzie wraz z kolegami współtworzy produkt wspomogający zespoły loss prevention w codziennej pracy.</p>
+								<p>
+								<a href="/prelegenci/robert-lyson/">więcej...</a>
+								</p>
+							</div>
 						</div>
 					</div>
 
-					<div class="col-sm-6">
-						<div class="speaker">
-						
-							<div class="speaker-info">
-								<div class="speaker-photo">
-									<img src="/images/speakers/robert-lyson.png" alt="Robert Łysoń">
-								</div>		
-								<div class="speaker-contacts">
-									<a href="https://twitter.com/robertlyson" target="_blank" class="contact pull-right fa fa-twitter"></a>
-								</div>						
-							</div>
-							<h3><a href="/prelegenci/robert-lyson/">Robert Łysoń</a></h3>
-							<p>Robert od ładnych paru lat pracuje w Ministry of Ideas gdzie wraz z kolegami współtworzy produkt wspomogający zespoły loss prevention w codziennej pracy.</p>
-							<p>
-							<a href="/prelegenci/robert-lyson/">więcej...</a>
-							</p>
-						</div>
-					</div>
+					<div class="row">
 
-					<div class="col-sm-6">
+						<div class="col-sm-6">
 						<div class="speaker">
-						
+
 							<div class="speaker-info">
 								<div class="speaker-photo">
 									<img src="/images/speakers/szymon-pobiega.jpg" alt="Szymon Pobiega">
-								</div>		
+								</div>
 								<div class="speaker-contacts">
 									<a href="http://simon-says-architecture.com/" target="_blank" class="contact pull-left fa fa-globe"></a>
 									<a href="https://twitter.com/SzymonPobiega" target="_blank" class="contact pull-right fa fa-twitter"></a>
-								</div>						
+								</div>
 							</div>
 							<h3><a href="/prelegenci/szymon-pobiega/">Szymon Pobiega</a></h3>
 							<p>Used to build various kinds of custom software systems, from banks and airlines to bitcoin exchanges, only to figure out his true passion lies in the stuff that is hidden from user's eyes -- the infrastructure on which the business software runs.</p>
 							<p>
-							<a href="/prelegenci/szymon-pobiega/">more...</a>
+								<a href="/prelegenci/szymon-pobiega/">more...</a>
 							</p>
 						</div>
-					</div>
-					
-					<div class="col-sm-6">
+						</div>
+
+						<div class="col-sm-6">
 						<div class="speaker">
-						
+
 							<div class="speaker-info">
 								<div class="speaker-photo">
 									<img src="/images/speakers/tomasz-masternak.jpg" alt="Tomasz Masternak">
-								</div>		
+								</div>
 								<div class="speaker-contacts">
 									<a href="https://www.linkedin.com/in/tomek-masternak-9142602/" target="_blank" class="contact pull-left fa fa-linkedin"></a>
 									<a href="https://twitter.com/Masternak" target="_blank" class="contact pull-right fa fa-twitter"></a>
-								</div>						
+								</div>
 							</div>
 							<h3><a href="/prelegenci/tomasz-masternak/">Tomasz Masternak</a></h3>
 							<p>Tomek is an engineer at <a href="https://particular.net/">Particular Software</a> where he works on building messaging platform for *-service-oriented systems.</p>
 							<p>
-							<a href="/prelegenci/tomasz-masternak/">more...</a>
+								<a href="/prelegenci/tomasz-masternak/">more...</a>
 							</p>
+						</div>
 						</div>
 					</div>
 					
-					<div class="col-sm-6">
+					<div class="row">
+						<div class="col-sm-6">
 						<div class="speaker">
-						
 							<div class="speaker-info">
 								<div class="speaker-photo">
 									<img src="/images/speakers/marcin-hoppe.jpg" alt="Marcin Hoppe">
@@ -311,10 +367,9 @@
 							<a href="/prelegenci/marcin-hoppe/">more...</a>
 							</p>
 						</div>
-					</div>
+						</div>
 
-					
-					<div class="col-sm-6">
+						<div class="col-sm-6">
 						<div class="speaker">
 						
 							<div class="speaker-info">
@@ -332,9 +387,12 @@
 							<a href="/prelegenci/szymon-kulec/">more...</a>
 							</p>
 						</div>
+						</div>
 					</div>
 
-					<div class="col-sm-6">
+					<div class="row">
+
+						<div class="col-sm-6">
 						<div class="speaker">
 						<div class="speaker-info">
 							<div class="speaker-photo">
@@ -351,8 +409,9 @@
 							<a href="/prelegenci/pawel-lukasik/">więcej...</a>
 						</p>
 					</div>
-					</div>
-					<div class="col-sm-6">
+						</div>
+						
+						<div class="col-sm-6">
 						<div class="speaker">
 							<div class="speaker-info">
 								<div class="speaker-photo">
@@ -372,8 +431,11 @@ Senior Software Developer aktualnie pracujący we wrocławskim oddziale firmy Ry
 							<a href="/prelegenci/lukasz-pyrzyk/">więcej...</a>
 							</p>
 						</div>
+						</div>
 					</div>
-					<div class="col-sm-6">
+					
+					<div class="row">
+						<div class="col-sm-6">
 						<div class="speaker">
 							<div class="speaker-info">
 								<div class="speaker-photo">
@@ -388,8 +450,8 @@ Senior Software Developer aktualnie pracujący we wrocławskim oddziale firmy Ry
 							<a href="/prelegenci/lukasz-gasior/">więcej...</a>
 							</p>
 						</div>
-					</div>
-					<div class="col-sm-6">
+						</div>
+						<div class="col-sm-6">
 						<div class="speaker">
 							<div class="speaker-info">
 								<div class="speaker-photo">
@@ -406,8 +468,11 @@ Senior Software Developer aktualnie pracujący we wrocławskim oddziale firmy Ry
 							<a href="/prelegenci/pawel-sawicz/">więcej...</a>
 							</p>
 						</div>
+						</div>
 					</div>
-					<div class="col-sm-6">
+					
+					<div class="row">
+						<div class="col-sm-6">
 						<div class="speaker">
 							<div class="speaker-info">
 								<div class="speaker-photo">
@@ -420,8 +485,9 @@ Senior Software Developer aktualnie pracujący we wrocławskim oddziale firmy Ry
 							<a href="/prelegenci/natalia-krawczyk/">więcej...</a>
 							</p>
 						</div>
-					</div>
-					<div class="col-sm-6">
+						</div>
+						
+						<div class="col-sm-6">
 						<div class="speaker">
 							<div class="speaker-info">
 								<div class="speaker-photo">
@@ -438,8 +504,13 @@ Senior Software Developer aktualnie pracujący we wrocławskim oddziale firmy Ry
 							<a href="/prelegenci/dariusz-porowski/">więcej...</a>
 							</p>
 						</div>
+						</div>
 					</div>
-					<div class="col-sm-6"><div class="speaker">
+					
+					<div class="row">
+
+						<div class="col-sm-6">
+						<div class="speaker">
 							<div class="speaker-info">
 								<div class="speaker-photo">
 									<img src="/images/speakers/damian-jarosch.jpg" alt="Damian Jarosch">
@@ -453,8 +524,11 @@ Senior Software Developer aktualnie pracujący we wrocławskim oddziale firmy Ry
 							<p>
 							<a href="/prelegenci/damian-jarosch/">więcej...</a>
 							</p>
-						</div></div>
-					<div class="col-sm-6"><div class="speaker">
+						</div>
+						</div>
+						
+						<div class="col-sm-6">
+						<div class="speaker">
 								<div class="speaker-info">
 									<div class="speaker-photo">
 										<img src="/images/speakers/dominik-gawryszewski.png" alt="Dominik Gawryszewski">
@@ -468,8 +542,13 @@ Senior Software Developer aktualnie pracujący we wrocławskim oddziale firmy Ry
 								<p>
 								<a href="/prelegenci/dominik-gawryszewski/">więcej...</a>
 								</p>
-							</div></div>
-					<div class="col-sm-6"><div class="speaker">
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-sm-6">
+						<div class="speaker">
 								<div class="speaker-info">
 									<div class="speaker-photo">
 										<img src="/images/speakers/krzysztof-jonczyk.png" alt="Krzysztof Jończyk">
@@ -484,8 +563,11 @@ Senior Software Developer aktualnie pracujący we wrocławskim oddziale firmy Ry
 								<p>
 								<a href="/prelegenci/krzysztof-jonczyk/">więcej...</a>
 								</p>
-							</div></div>
-					<div class="col-sm-6"><div class="speaker">
+						</div>
+					</div>
+
+					<div class="col-sm-6">
+						<div class="speaker">
 							<div class="speaker-info">
 								<div class="speaker-photo">
 									<img src="/images/speakers/lukasz-kaluzny.jpg" alt="Łukasz Kałużny">
@@ -500,13 +582,18 @@ Senior Software Developer aktualnie pracujący we wrocławskim oddziale firmy Ry
 							<p>
 							<a href="/prelegenci/lukasz-kaluzny/">więcej...</a>
 							</p>
-						</div></div>
-					<div class="col-sm-6">
+						</div>
+						</div>
+					</div>
+
+
+                    <div class="row">
+						<div class="col-sm-6">
 						<div class="speaker">
 							<div class="speaker-info">
 								<div class="speaker-photo">
 									<img src="/images/speakers/michal-sliwon.png" alt="Michał Śliwoń">
-								</div>								
+								</div>
 								<div class="speaker-contacts">
 									<a href="http://mihcall.com/" class="contact pull-left fa fa-globe"></a>
 									<a href="https://twitter.com/mihcall" class="contact pull-right fa fa-twitter"></a>
@@ -514,19 +601,20 @@ Senior Software Developer aktualnie pracujący we wrocławskim oddziale firmy Ry
 							</div>
 							<h3><a href="/prelegenci/michal-sliwon/">Michał Śliwoń</a></h3>
 							<p>
-							Szczęśliwy programista aspirujący do miana geeka.
+								Szczęśliwy programista aspirujący do miana geeka.
 							</p>
 							<p>
-							<a href="/prelegenci/michal-sliwon/">więcej...</a>
+								<a href="/prelegenci/michal-sliwon/">więcej...</a>
 							</p>
 						</div>
-					</div>
-					<div class="col-sm-6">
+						</div>
+
+						<div class="col-sm-6">
 						<div class="speaker">
 							<div class="speaker-info">
 								<div class="speaker-photo">
 									<img src="/images/speakers/marcin-biegala.jpg" alt="Marcin Biegała">
-								</div>								
+								</div>
 								<div class="speaker-contacts">
 									<a href="https://blog.biegala.net/" class="contact pull-left fa fa-globe"></a>
 									<a href="https://twitter.com/biegal" class="contact pull-right fa fa-twitter"></a>
@@ -534,19 +622,22 @@ Senior Software Developer aktualnie pracujący we wrocławskim oddziale firmy Ry
 							</div>
 							<h3><a href="/prelegenci/marcin-biegala/">Marcin Biegała</a></h3>
 							<p>
-							Dev, motorcyclist, dreamer and coffee lover. Humble servant of <a href="http://www.meetup.com/dev-LDZ/">@devldz</a>. HappyDev at <a href="https://twitter.com/happyteamio">@happyteamio</a>. Helping with <a href="http://cfp.help">cfp.help</a>.
+								Dev, motorcyclist, dreamer and coffee lover. Humble servant of <a href="http://www.meetup.com/dev-LDZ/">@devldz</a>. HappyDev at <a href="https://twitter.com/happyteamio">@happyteamio</a>. Helping with <a href="http://cfp.help">cfp.help</a>.
 							</p>
 							<p>
-							<a href="/prelegenci/marcin-biegala/">więcej...</a>
+								<a href="/prelegenci/marcin-biegala/">więcej...</a>
 							</p>
 						</div>
+						</div>
 					</div>
-					<div class="col-sm-6">
+                    
+					<div class="row">
+						<div class="col-sm-6">
 						<div class="speaker">
 							<div class="speaker-info">
 								<div class="speaker-photo">
 									<img src="/images/speakers/lukasz-kuczborski.jpg" alt="Łukasz Kuczborski">
-								</div>								
+								</div>
 								<div class="speaker-contacts">
 									<a href="http://kuczborski.com/" class="contact pull-left fa fa-globe"></a>
 									<a href="https://twitter.com/lkuczborski" class="contact pull-right fa fa-twitter"></a>
@@ -554,19 +645,20 @@ Senior Software Developer aktualnie pracujący we wrocławskim oddziale firmy Ry
 							</div>
 							<h3><a href="/prelegenci/lukasz-kuczborski/">Łukasz Kuczborski</a></h3>
 							<p>
-							iOS Developer <a href="https://twitter.com/Allegro_Group">@Allegro_Group</a> | Swifter | Photographer 
+								iOS Developer <a href="https://twitter.com/Allegro_Group">@Allegro_Group</a> | Swifter | Photographer
 							</p>
 							<p>
-							<a href="/prelegenci/lukasz-kuczborski/">więcej...</a>
+								<a href="/prelegenci/lukasz-kuczborski/">więcej...</a>
 							</p>
 						</div>
-					</div>
-					<div class="col-sm-6">
+						</div>
+
+						<div class="col-sm-6">
 						<div class="speaker">
 							<div class="speaker-info">
 								<div class="speaker-photo">
 									<img src="/images/speakers/lukasz-stocki.jpg" alt="Łukasz Stocki">
-								</div>								
+								</div>
 								<div class="speaker-contacts">
 									<a href="https://www.linkedin.com/profile/view?id=232499711" class="contact pull-left fa fa-linkedin"></a>
 									<a href="https://twitter.com/lukaszstocki" class="contact pull-right fa fa-twitter"></a>
@@ -574,19 +666,22 @@ Senior Software Developer aktualnie pracujący we wrocławskim oddziale firmy Ry
 							</div>
 							<h3><a href="/prelegenci/lukasz-stocki/">Łukasz Stocki</a></h3>
 							<p>
-							Self taught iOS developer that never stops to wonder that all of this works.
+								Self taught iOS developer that never stops to wonder that all of this works.
 							</p>
 							<p>
-							<a href="/prelegenci/lukasz-stocki/">więcej...</a>
+								<a href="/prelegenci/lukasz-stocki/">więcej...</a>
 							</p>
 						</div>
+						</div>
 					</div>
-					<div class="col-sm-6">
+
+                    <div class="row">
+						<div class="col-sm-6">
 						<div class="speaker">
 							<div class="speaker-info">
 								<div class="speaker-photo">
 									<img src="/images/speakers/sebastian-solnica.jpg" alt="Sebastian Solnica">
-								</div>								
+								</div>
 								<div class="speaker-contacts">
 									<a href="https://lowleveldesign.wordpress.com/" class="contact pull-left fa fa-globe"></a>
 									<a href="https://twitter.com/lowleveldesign" class="contact pull-right fa fa-twitter"></a>
@@ -594,19 +689,20 @@ Senior Software Developer aktualnie pracujący we wrocławskim oddziale firmy Ry
 							</div>
 							<h3><a href="/prelegenci/sebastian-solnica/">Sebastian Solnica</a></h3>
 							<p>
-							Szczęśliwy programista aspirujący do miana geeka.
+								Szczęśliwy programista aspirujący do miana geeka.
 							</p>
 							<p>
-							<a href="/prelegenci/sebastian-solnica/">więcej...</a>
+								<a href="/prelegenci/sebastian-solnica/">więcej...</a>
 							</p>
 						</div>
-					</div>
-					<div class="col-sm-6">
+						</div>
+
+						<div class="col-sm-6">
 						<div class="speaker">
 							<div class="speaker-info">
 								<div class="speaker-photo">
 									<img src="/images/speakers/jakub-gutkowski.png" alt="Jakub Gutkowski">
-								</div>								
+								</div>
 								<div class="speaker-contacts">
 									<a href="http://blog.gutek.pl/" class="contact pull-left fa fa-globe"></a>
 									<a href="https://twitter.com/gutek" class="contact pull-right fa fa-twitter"></a>
@@ -615,11 +711,14 @@ Senior Software Developer aktualnie pracujący we wrocławskim oddziale firmy Ry
 							<h3><a href="/prelegenci/jakub-gutkowski/">Jakub Gutkowski</a></h3>
 							<p>Tata, mąż, blogger, pasjonat i programista. Uwielbia bawić się nowościami, poznawać nowe języki i biblioteki, chodzić na konferencje, poznawać nowych ludzi, pomagać innym.</p>
 							<p>
-							<a href="/prelegenci/jakub-gutkowski/">więcej...</a>
+								<a href="/prelegenci/jakub-gutkowski/">więcej...</a>
 							</p>
 						</div>
+						</div>
 					</div>
-					<div class="col-sm-6">
+                    
+					<div class="row">
+						<div class="col-sm-6">
 						<div class="speaker">
 							<div class="speaker-info">
 								<div class="speaker-photo">
@@ -633,11 +732,12 @@ Senior Software Developer aktualnie pracujący we wrocławskim oddziale firmy Ry
 							<h3><a href="/prelegenci/marcin-malinowski/">Marcin Malinowski</a></h3>
 							<p>Tata^2, mąż humanistki, mól książkowy, uparciuch, programista, konferencjoholik. Don Kichot walczący z entropią. Kocha sprzeczności i humor. Wierzy w przypadek. Piwny filozof.</p>
 							<p>
-							<a href="/prelegenci/marcin-malinowski/">więcej...</a>
+								<a href="/prelegenci/marcin-malinowski/">więcej...</a>
 							</p>
 						</div>
-					</div>
-					<div class="col-sm-6">
+						</div>
+
+						<div class="col-sm-6">
 						<div class="speaker">
 							<div class="speaker-info">
 								<div class="speaker-photo">
@@ -651,11 +751,14 @@ Senior Software Developer aktualnie pracujący we wrocławskim oddziale firmy Ry
 							<h3><a href="/prelegenci/marcin-samsonowski/">Marcin Samsonowski</a></h3>
 							<p>Marcin w swojej dopiero rozpędzającej się karierze pracował zarówno dla korporacji jak i mniejszych firm. Ma dświadczenie z dostarczaniem oprogramowania dla różnych sektorów rynkowych. W projektach, w których uczestniczył pełnił cały wachlarz ról od programisty do managera projektu.</p>
 							<p>
-							<a href="/prelegenci/marcin-samsonowski/">więcej...</a>
+								<a href="/prelegenci/marcin-samsonowski/">więcej...</a>
 							</p>
 						</div>
-					</div>
-					<div class="col-sm-6">
+						</div>
+					</div>					
+                    
+					<div class="row">
+						<div class="col-sm-6">
 						<div class="speaker">
 							<div class="speaker-info">
 								<div class="speaker-photo">
@@ -671,16 +774,17 @@ Senior Software Developer aktualnie pracujący we wrocławskim oddziale firmy Ry
 							<p>Korzystający z każdej technologii, która prowadzi do celu.</p>
 							<p>Wierzący w ludzi a nie w papiery. </p>
 							<p>
-							<a href="/prelegenci/piotr-stapp/">więcej...</a>
+								<a href="/prelegenci/piotr-stapp/">więcej...</a>
 							</p>
 						</div>
-					</div>
-					<div class="col-sm-6">
-					<div class="speaker">
+						</div>
+
+						<div class="col-sm-6">
+						<div class="speaker">
 							<div class="speaker-info">
 								<div class="speaker-photo">
 									<img src="/images/speakers/maciej-aniserowicz.jpg" alt="Maciej Aniserowicz">
-								</div>								
+								</div>
 								<div class="speaker-contacts">
 									<a href="http://www.maciejaniserowicz.com/" class="contact pull-left fa fa-globe"></a>
 									<a href="https://twitter.com/maniserowicz" class="contact pull-right fa fa-twitter"></a>
@@ -688,21 +792,25 @@ Senior Software Developer aktualnie pracujący we wrocławskim oddziale firmy Ry
 							</div>
 							<h3><a href="/prelegenci/maciej-aniserowicz/">Maciej Aniserowicz</a></h3>
 							<p>
-							Po pierwsze: programista-pasjonat. Człowiek od wszystkiego w firmie Ultrico.
+								Po pierwsze: programista-pasjonat. Człowiek od wszystkiego w firmie Ultrico.
 							</p><p>
-Po drugie: pragmatyczny trener z misją dostarczania wyjątkowych szkoleń, faktycznie zmieniających sposób pracy i myślenia.
-							</p>
+							Po drugie: pragmatyczny trener z misją dostarczania wyjątkowych szkoleń, faktycznie zmieniających sposób pracy i myślenia.
+						</p>
 							<p>
-							<a href="/prelegenci/maciej-aniserowicz/">więcej...</a>
+								<a href="/prelegenci/maciej-aniserowicz/">więcej...</a>
 							</p>
 						</div>
+						</div>
 					</div>
-					<div class="col-sm-6">
-					<div class="speaker">
+                    
+					<div class="row">
+
+						<div class="col-sm-6">
+						<div class="speaker">
 							<div class="speaker-info">
 								<div class="speaker-photo">
 									<img src="/images/speakers/konrad-kokosa.jpg" alt="Konrad Kokosa">
-								</div>								
+								</div>
 								<div class="speaker-contacts">
 									<a href="http://blog.kokosa.net/" class="contact pull-left fa fa-globe"></a>
 									<a href="https://twitter.com/konradkokosa" class="contact pull-right fa fa-twitter"></a>
@@ -713,16 +821,17 @@ Po drugie: pragmatyczny trener z misją dostarczania wyjątkowych szkoleń, fakt
 								Programujący od lat kilkunastu, od kilku lat rozwiązujący problemy wydajności, zagadki diagnostyczne i łamigłówki architektury w świecie .NET, przyspieszając głównie aplikacje webowe.
 							</p>
 							<p>
-							<a href="/prelegenci/konrad-kokosa/">więcej...</a>
+								<a href="/prelegenci/konrad-kokosa/">więcej...</a>
 							</p>
 						</div>
-					</div>
-					<div class="col-sm-6">
+						</div>
+
+						<div class="col-sm-6">
 						<div class="speaker">
 							<div class="speaker-info">
 								<div class="speaker-photo">
 									<img src="/images/speakers/wojciech-gawronski.jpg" alt="Wojciech Gawroński">
-								</div>								
+								</div>
 								<div class="speaker-contacts">
 									<a href="http://afronski.pl/" class="contact pull-left fa fa-globe"></a>
 									<a href="https://twitter.com/afronski" class="contact pull-right fa fa-twitter"></a>
@@ -737,10 +846,12 @@ Po drugie: pragmatyczny trener z misją dostarczania wyjątkowych szkoleń, fakt
 								rozproszonych
 							</p>
 							<p>
-							<a href="/prelegenci/wojciech-gawronski/">więcej...</a>
+								<a href="/prelegenci/wojciech-gawronski/">więcej...</a>
 							</p>
 						</div>
+						</div>
 					</div>
+
 					<div class="speaker">
 							<div class="speaker-info">
 								<div class="speaker-photo">
@@ -759,7 +870,6 @@ Po drugie: pragmatyczny trener z misją dostarczania wyjątkowych szkoleń, fakt
 							<a href="/prelegenci/mariusz-gil/">więcej...</a>
 							</p>
 						</div>
-					</div>
 				</section>
 				<!--==========-->
 
@@ -784,7 +894,7 @@ Po drugie: pragmatyczny trener z misją dostarczania wyjątkowych szkoleń, fakt
 						</div>
 						<div class="col-sm-4 text-right">
 							<div class="copyrights">
-								All Rights Reserved. © <a href="http://blog.gutek.pl">Jakub Gutkowski</a> 2015
+								All Rights Reserved. © <a href="http://blog.gutek.pl">Jakub Gutkowski</a> {{ site.time | date: '%Y' }}
 							</div>
 						</div>
 					</section>

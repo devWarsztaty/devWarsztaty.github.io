@@ -1,0 +1,63 @@
+collections:
+  warsztaty:
+    output: true
+    permalink: /warsztaty/:path/
+  prelegenci:
+    output: true
+    permalink: /prelegenci/:path/
+
+defaults:
+  - scope:
+      path: "_warsztaty"
+    values:
+      layout: warsztaty
+  - scope:
+      path: "_prelegenci"
+    values:
+      layout: prelegenci
+        
+# Jekyll configuration
+markdown: kramdown
+highlighter: rouge
+language: 'pl'
+
+# Website info
+title: devWarsztaty
+description: devWarsztaty - inicjatywa typu społeczność dla społeczności zainaugurowana przez Jakuba Gutkowskiego
+logo: http://devWarsztaty.pl/images/logo-627x627.jpg
+production_url: https://devwarsztaty.pl
+url: https://devwarsztaty.pl
+
+facebook: https://www.facebook.com/devWarsztaty
+facebook_admin: 1077660901
+
+# Google Analytics
+google_analytics: UA-4831504-10
+
+# gems and other configs
+plugins_dir: [_plugins]
+plugins: [jekyll-paginate, jekyll-feed]
+
+feed:
+  path: feed.xml
+
+exclude:
+  - assets/css
+  - notes
+  - node_modules
+  - vendor
+  - .travis.yml
+  - Gemfile
+  - Gemfile.lock
+  - GHOST.txt
+  - gulpfile.js
+  - LICENSE
+  - package.json
+  - Rakefile
+  - README.md
+  - script.py
+  - changelog.md
+  - "*.Rmd"
+  - .git*
+
+include: [_redirects]

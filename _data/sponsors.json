@@ -1,0 +1,27 @@
+{
+  "skyrise": {
+    "name": "Skyrise",
+    "img": "/images/sponsors/skyrise.jpg",
+    "url": "https://www.skyrise.tech/",
+    "height": "55px"
+  },
+  "jetbrains": {
+    "name": "JetBrains",
+    "img": "/images/sponsors/jetbrains-logo.png",
+    "url": "https://www.jetbrains.com/",
+    "height": "55px"
+  },
+  "manning": {
+    "name": "Manning",
+    "img": "/images/sponsors/manning-logo.jpg",
+    "url": "https://www.manning.com/",
+    "width": "240px",
+    "height": "55px"
+  },
+  "pgs": {
+    "name": "PGS Software",
+    "img": "/images/sponsors/pgs-software-logo.png",
+    "url": "https://www.pgs-soft.com/",
+    "height": "55px"
+  }
+}

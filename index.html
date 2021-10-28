@@ -1,3 +1,5 @@
+---
+---
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -6,7 +8,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
-<meta name="description" content="devWarsztaty, inicjatywa typu społeczność dla społeczności zainaugurowana przez Jakuba Gutkowskiego">
+<meta name="description" content="devWarsztaty, inicjatywa typu społeczność dla społeczności">
 
 
 <meta property="og:image" content="http://devWarsztaty.pl/images/logo-627x627.jpg">
@@ -140,6 +142,18 @@
 						<div class="section-header text-left">
 							<h2>Nadchodzące wydarzenia</h2>
 						</div>
+					</div>	
+				</section>
+				<!--==========-->
+
+				<!--===============================-->
+				<!--== Speakers ===================-->
+				<!--===============================-->
+				<section id="prev" class="row separated">
+					<div class="col-sm-12">
+						<div class="section-header text-left">
+							<h2>Minione</h2>
+						</div>
 					</div>
 					<div class="col-md-6 col-sm-6">
 						<div class="pricing-table">
@@ -154,17 +168,47 @@
 								</li>
 							</ul>
 						</div>
-					</div>					
-				</section>
-				<!--==========-->
-
-				<!--===============================-->
-				<!--== Speakers ===================-->
-				<!--===============================-->
-				<section id="prev" class="row separated">
-					<div class="col-sm-12">
-						<div class="section-header text-left">
-							<h2>Minione</h2>
+					</div>			
+					<div class="col-md-6 col-sm-6">
+						<div class="pricing-table">
+							<h3 class="table-title">[Wrocław] Azure IoT</h3>
+							<div class="table-price">22 lutego 2020</div>
+							<ul class="table-features">
+								<li>
+									<a class="fa fa-users" href="https://www.meetup.com/devWarsztaty/events/268575714/"><span>meetup</span></a>
+								</li>
+								<li>
+									<a class="fa fa-globe" href="/warsztaty/2020-02-22"><span>strona informacyjna</span></a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-md-6 col-sm-6">
+						<div class="pricing-table">
+							<h3 class="table-title">[Wrocław] Delete Driven Architecture</h3>
+							<div class="table-price">29 lutego 2020</div>
+							<ul class="table-features">
+								<li>
+									<a class="fa fa-users" href="https://www.meetup.com/devWarsztaty/events/268732455/"><span>meetup</span></a>
+								</li>
+								<li>
+									<a class="fa fa-globe" href="/warsztaty/2020-02-29"><span>strona informacyjna</span></a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-md-6 col-sm-6">
+						<div class="pricing-table">
+							<h3 class="table-title">[Kraków] Event Storming + Event Modelling</h3>
+							<div class="table-price">15 lutego 2020</div>
+							<ul class="table-features">
+								<li>
+									<a class="fa fa-users" href="https://www.meetup.com/devWarsztaty/events/268246778/"><span>meetup</span></a>
+								</li>
+								<li>
+									<a class="fa fa-globe" href="/warsztaty/2020-02-15"><span>strona informacyjna</span></a>
+								</li>
+							</ul>
 						</div>
 					</div>
 					<div class="col-md-6 col-sm-6">
@@ -250,21 +294,21 @@
 									</li>
 								</ul>
 							</div>
+					</div>
+					<div class="col-md-6 col-sm-6">
+						<div class="pricing-table">
+							<h3 class="table-title">[Katowice] Clean Architecture w .NET Core</h3>
+							<div class="table-price">19 października 2019</div>
+							<ul class="table-features">
+								<li>
+									<a class="fa fa-users" href="https://www.meetup.com/devWarsztaty/events/265049791/"><span>meetup</span></a>
+								</li>
+								<li>
+									<a class="fa fa-globe" href="/warsztaty/2019-10-19"><span>strona informacyjna</span></a>
+								</li>
+							</ul>
 						</div>
-						<div class="col-md-6 col-sm-6">
-							<div class="pricing-table">
-								<h3 class="table-title">[Katowice] Clean Architecture w .NET Core</h3>
-								<div class="table-price">19 października 2019</div>
-								<ul class="table-features">
-									<li>
-										<a class="fa fa-users" href="https://www.meetup.com/devWarsztaty/events/265049791/"><span>meetup</span></a>
-									</li>
-									<li>
-										<a class="fa fa-globe" href="/warsztaty/2019-10-19"><span>strona informacyjna</span></a>
-									</li>
-								</ul>
-							</div>
-						</div>
+					</div>
 					<div class="col-md-6 col-sm-6">
 						<div class="pricing-table">
 							<h3 class="table-title">[Wrocław] Event Sourcing</h3>
@@ -321,20 +365,9 @@
 							</ul>
 						</div>
 					</div>
-					<div class="col-md-6 col-sm-6">
-						<div class="pricing-table">
-							<h3 class="table-title">[Warszawa] Warszaty z Git</h3>
-							<div class="table-price">27 kwietnia 2019</div>
-							<ul class="table-features">
-								<li>
-									<a class="fa fa-users" href="https://www.meetup.com/devWarsztaty/events/260725269/"><span>meetup</span></a>
-								</li>
-								<li>
-									<a class="fa fa-globe" href="/warsztaty/2019-04-27"><span>strona informacyjna</span></a>
-								</li>
-							</ul>
-						</div>
-					</div>
+					
+					{% include table.html url="2019-04-27" %}
+					
 					<div class="col-md-6 col-sm-6">
 						<div class="pricing-table">
 							<h3 class="table-title">[Kraków] Event Storming - jak szybko odkrywać nieznane</h3>
@@ -433,20 +466,9 @@
 							</ul>
 						</div>
 					</div>
-					<div class="col-md-6 col-sm-6">
-						<div class="pricing-table">
-							<h3 class="table-title">[Katowice] Git</h3>
-							<div class="table-price">12 stycznia 2019</div>
-							<ul class="table-features">
-								<li>
-									<a class="fa fa-users" href="https://www.meetup.com/devWarsztaty/events/257265105/"><span>meetup</span></a>
-								</li>
-								<li>
-									<a class="fa fa-globe" href="/warsztaty/2019-01-12"><span>strona informacyjna</span></a>
-								</li>
-							</ul>
-						</div>
-					</div>	
+					
+					{% include table.html url="2019-01-12" %}
+					
 					<div class="col-md-6 col-sm-6">
 						<div class="pricing-table">
 							<h3 class="table-title">[Wrocław] Od chaosu do SOLIDa</h3>
@@ -545,20 +567,9 @@
 							</ul>
 						</div>
 					</div>
-					<div class="col-md-6 col-sm-6">
-						<div class="pricing-table">
-							<h3 class="table-title">[Wrocław] Git</h3>
-							<div class="table-price">19 maja 2018</div>
-							<ul class="table-features">
-								<li>
-									<a class="fa fa-users" href="https://www.meetup.com/pl-PL/devWarsztaty/events/250692882/"><span>meetup</span></a>
-								</li>
-								<li>
-									<a class="fa fa-globe" href="/warsztaty/2018-05-19-wro"><span>strona informacyjna</span></a>
-								</li>
-							</ul>
-						</div>
-					</div>					
+					
+					{% include table.html url="2018-05-19-wro" %}
+					
 					<div class="col-md-6 col-sm-6">
 						<div class="pricing-table">
 							<h3 class="table-title">[Katowice] Learn Elixir the Hard Way</h3>
